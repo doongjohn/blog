@@ -1,0 +1,79 @@
+---
+export interface Props {
+	title: string
+	date: [number, number, number]
+	tags: Array<string>
+}
+
+const { title, date, tags } = Astro.props
+
+const formatDate = (dateTuple: [number, number, number]) => {
+	const dateObj = new Date(...dateTuple)
+	const year = dateObj.getFullYear()
+	const month = dateObj.getMonth()
+	const date = dateObj.getDate()
+
+	let result = year + ' - '
+	if (month < 10) result += '0'
+	result += month + ' - '
+	if (date < 10) result += '0'
+	result += date
+
+	return result
+}
+---
+
+<article>
+	<div class="title">{title}</div>
+	<div class="date"><span>{formatDate(date)}</span></div>
+	<div class="tags"></div>
+	<ul class="tags">
+		{tags.map((tag) => <li>{tag}</li>)}
+	</ul>
+</article>
+
+<style lang="scss">
+	article {
+		max-width: 60em;
+		margin: auto;
+		padding: 1em;
+		padding-bottom: 3em;
+
+		& > .title {
+			font-size: 18px;
+			padding: 1.5em;
+			text-align: center;
+			color: #14192b;
+			background-color: #dadecb;
+			cursor: pointer;
+		}
+
+		& > .date {
+			margin-top: 1.1em;
+			border-bottom: 1px solid #adb593;
+			line-height: 0;
+			text-align: center;
+			color: #adb593;
+
+			& > span {
+				padding: 0.4em;
+				border: none;
+				background-color: #e8e8e8;
+			}
+		}
+
+		& > .tags {
+			color: #b95f35;
+			margin: 0;
+			margin-top: 0.5em;
+
+			& > li {
+				display: inline-block;
+				margin-right: 0.5em;
+				&::before {
+					content: '#';
+				}
+			}
+		}
+	}
+</style>

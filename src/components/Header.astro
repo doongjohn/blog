@@ -1,0 +1,54 @@
+---
+export interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<header>
+	<div class="title-text">{title}</div>
+	<div class="title-body">
+		<!-- https://ascii.co.uk/art/bird -->
+		<pre>{String.raw` _      _      _
+__(.)< __(.)> __(.)=
+\___)  \___)  \___)`}</pre>
+		<div style={{ minHeight: '2em' }}></div>
+		<div>{'{ "code", "game dev", "gaming" }'}</div>
+	</div>
+</header>
+
+<style lang="scss">
+	header {
+		display: flex;
+		flex-flow: column;
+		padding-bottom: 2em;
+		background-color: #1e2541;
+
+		& > .title-text {
+			font-size: 18px;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 1em;
+			color: #748e59;
+		}
+
+		& > .title-body {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			font-size: 26px;
+			min-height: 8em;
+			margin: auto;
+			color: #d1dfc1;
+
+			& > pre {
+				text-align: center;
+			}
+
+			& > div {
+				text-align: center;
+			}
+		}
+	}
+</style>
