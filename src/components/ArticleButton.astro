@@ -26,10 +26,7 @@ const formatDate = (dateTuple: [number, number, number]) => {
 <article>
 	<div class="title">{title}</div>
 	<div class="date"><span>{formatDate(date)}</span></div>
-	<div class="tags"></div>
-	<ul class="tags">
-		{tags.map((tag) => <li>{tag}</li>)}
-	</ul>
+	<ul class="tags">{tags.map((tag) => <li>{tag}</li>)}</ul>
 </article>
 
 <style lang="scss">
