@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.3.2"
+    "astro": "^2.8.1"
   },
   "devDependencies": {
-    "sass": "^1.62.1"
+    "sass": "^1.63.6"
   }
 }
